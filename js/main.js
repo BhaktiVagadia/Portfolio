@@ -105,6 +105,14 @@ AOS.init({
 	    nav:false,
 	    autoplayHoverPause: false,
 	    items: 1,
+	    // Only one real slide exists (the second is commented out in the HTML),
+	    // so there is nothing to swipe between. Owl Carousel listens for touch
+	    // drag on its whole container by default, which was capturing vertical
+	    // swipe gestures on the hero and blocking page scroll whenever a touch
+	    // started inside it. Turning drag off removes that capture entirely.
+	    touchDrag: false,
+	    mouseDrag: false,
+	    pullDrag: false,
 	    navText : ["<span class='ion-md-arrow-back'></span>","<span class='ion-chevron-right'></span>"],
 	    responsive:{
 	      0:{
