@@ -9784,3 +9784,102 @@ textarea.form-control {
 .sk-pgsql    { --glow-color: linear-gradient(135deg, #336791, #008BB9); }
 .sk-js       { --glow-color: linear-gradient(135deg, #F7DF1E, #F0AB00); }
 .sk-api      { --glow-color: linear-gradient(135deg, #6EC6F5, #00C853); }
+
+/* Container Box styling */
+.project-container {
+  background-color: #ffffff; /* Clean white background */
+  border: 1px solid #e2e8f0; /* Soft gray border */
+  border-radius: 16px; 
+  overflow: hidden; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03); /* Subtle depth shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-container:hover {
+  transform: translateY(-2px); /* Small interactive lift */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+/* Upper Media Box */
+.project-media {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-color: #f8fafc; /* Fallback light background */
+}
+
+.project-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+/* Lower Content Box padding */
+.project-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-tag {
+  color: #4f46e5; /* Slightly deeper indigo for high contrast readability */
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.project-title {
+  color: #0f172a; /* Deep slate/black for strong hierarchy */
+  font-size: 22px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.project-description {
+  color: #475569; /* Readable charcoal gray instead of pure black */
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Optional Tech Tags styling */
+.tech-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.tag {
+  background-color: #f1f5f9; /* Light slate tag bubble */
+  color: #64748b; /* Medium slate text */
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* View Link styling */
+.view-project {
+  color: #4f46e5; 
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: auto;
+  padding-top: 12px;
+  display: inline-block;
+}
+
+.view-project:hover {
+  color: #3730a3; /* Darker indigo variant on hover */
+  text-decoration: underline;
+}
+
