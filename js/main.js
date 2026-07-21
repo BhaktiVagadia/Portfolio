@@ -1,4 +1,4 @@
- AOS.init({
+AOS.init({
  	duration: 800,
  	easing: 'slide'
  });
@@ -7,14 +7,32 @@
 
 	"use strict";
 
-	$(window).stellar({
-    responsive: true,
-    parallaxBackgrounds: true,
-    parallaxElements: true,
-    horizontalScrolling: false,
-    hideDistantElements: false,
-    scrollProperty: 'scroll'
-  });
+	// loader - run this FIRST and unconditionally. It must not depend on any
+	// other plugin succeeding: if a plugin below throws (Stellar in particular
+	// is known to error on some mobile browsers), the rest of this script stops
+	// executing, which used to leave this full-screen fixed overlay stuck over
+	// the page - silently blocking every touch/swipe gesture on mobile.
+	var loader = function() {
+		setTimeout(function() { 
+			if($('#ftco-loader').length > 0) {
+				$('#ftco-loader').removeClass('show');
+			}
+		}, 1);
+	};
+	loader();
+
+	try {
+		$(window).stellar({
+	    responsive: true,
+	    parallaxBackgrounds: true,
+	    parallaxElements: true,
+	    horizontalScrolling: false,
+	    hideDistantElements: false,
+	    scrollProperty: 'scroll'
+	  });
+	} catch (e) {
+		console.warn('Stellar parallax failed to init:', e);
+	}
 
 
 	var fullHeight = function() {
@@ -27,18 +45,12 @@
 	};
 	fullHeight();
 
-	// loader
-	var loader = function() {
-		setTimeout(function() { 
-			if($('#ftco-loader').length > 0) {
-				$('#ftco-loader').removeClass('show');
-			}
-		}, 1);
-	};
-	loader();
-
 	// Scrollax
-   $.Scrollax();
+   try {
+   	$.Scrollax();
+   } catch (e) {
+   	console.warn('Scrollax failed to init:', e);
+   }
 
 
 
@@ -327,4 +339,3 @@
 
 
 })(jQuery);
-
