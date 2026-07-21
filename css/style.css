@@ -8558,6 +8558,28 @@ h1, h2, h3, h4, h5,
           text-transform: uppercase;
           font-size: 12px;
           letter-spacing: 3px; }
+
+      /* Mobile fix: main.js sets an inline height (window height) on .js-fullheight,
+         which is applied to .one-third (the image panel). On most phones the
+         viewport is taller than the fixed 750px hero, so that inline height pushed
+         the image panel past the hero box and into the About section, while the
+         text card (.one-forth) stayed pinned to the 750px box above it -
+         producing the overlap. Forcing the hero to a fixed viewport height on
+         mobile and pinning both panels to it with !important (which beats the
+         inline style main.js sets) keeps them locked together. */
+      @media (max-width: 991.98px) {
+        .owl-carousel.home-slider,
+        .owl-carousel.home-slider .slider-item,
+        .owl-carousel.home-slider .slider-item .slider-text {
+          height: 100vh !important;
+          min-height: 550px; }
+        .owl-carousel.home-slider .slider-item .slider-text .one-third {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 100% !important; } }
     .owl-carousel.home-slider .owl-nav {
       position: absolute;
       bottom: 60px !important;
